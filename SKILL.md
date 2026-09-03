@@ -57,6 +57,12 @@ The person never repeats a stage. Read the conversation and any generated `BUSIN
 Read [references/business-intake.md](references/business-intake.md) when the user first supplies a
 business plan, notes, document, or raw description.
 
+This intake is the gap analysis from the TCE + NHA method, the `tce` skill
+(github.com/albertpikkop/tce-skill). If `tce` is installed, run its TCE #0 and use that output;
+the intake reference only says which facts a first CRM needs. Either way the six steps and the
+rule are the same: do not invent facts, mark every guess as Assumption, wait for approval before
+creating anything.
+
 Create `BUSINESS-TRUTH.md` from [assets/BUSINESS-TRUTH-TEMPLATE.md](assets/BUSINESS-TRUTH-TEMPLATE.md)
 only after reviewing the source. Separate facts, assumptions and missing information. Ask no more
 than three easy questions whose answers change the landing page or enquiry flow. Do not invent a
@@ -72,8 +78,12 @@ Inspect the current registry instead of relying on remembered availability:
 - Supabase needs connected tools for projects, costs, SQL, keys and advisors.
 - Sites needs the installed `sites-building` and `sites-hosting` skills and its connector tools.
 
-If either capability is missing, say which one is missing and why it is needed. Use the environment's
-supported plugin suggestion or connection flow only after the user agrees. Never install a plugin
+If either capability is missing, say which one is missing and why it is needed. The Sites steps are
+Codex-only. In another agent, such as Claude Code or Cursor, keep the Supabase half exactly as
+written and build the landing page, form, login and dashboard as a plain static site on a host the
+student already has (Cloudflare Pages, Netlify or GitHub Pages); say so before starting, and keep
+every other gate in this skill. Use the environment's supported plugin suggestion or connection
+flow only after the user agrees. Never install a plugin
 through an unreviewed shell command. If no supported installation path is available, stop with
 `[PENDING: connect or install Supabase/Sites]` and give one plain next step.
 
@@ -147,7 +157,9 @@ email as the login identifier. Do not invent a separate username system.
 ## Stage 5: prove it
 
 Read [references/verification.md](references/verification.md). Do not declare success from a build
-command or API receipt alone. Use one clearly labelled test enquiry and prove the full external
+command or API receipt alone. Then run the check from the `tce` skill on the finished loop against
+the boundary above: invented, each check met or not met or [PENDING], assumed without being told,
+why, the fix, and the one line to add next time. Use one clearly labelled test enquiry and prove the full external
 loop. Run Supabase security and performance advisors after schema work and resolve material
 security findings before handoff.
 

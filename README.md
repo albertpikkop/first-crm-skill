@@ -1,7 +1,9 @@
 # Build My First CRM
 
-A standalone Codex skill for non-technical students who want to turn a business plan into their
-first working customer-enquiry system.
+A Codex skill for non-technical students who want to turn a business plan into their first
+working customer-enquiry system. It needs Codex's Sites skills and the Supabase connector. In
+Claude Code or Cursor the Supabase half works as written and the site is built as a plain static
+page on a host you already have; the skill says so before it starts.
 
 ```text
 Landing page -> enquiry form -> Supabase -> operator login -> enquiry list
@@ -24,6 +26,19 @@ Remove `-g` if you want the skill only inside the current project.
 ```text
 Use $build-first-crm to build my first CRM from this business plan: [paste or attach the plan].
 ```
+
+## The method underneath
+
+The skill starts with the gap analysis from the TCE + NHA method
+([albertpikkop/tce-skill](https://github.com/albertpikkop/tce-skill)): it says back what it
+understood, separates facts from assumptions, marks every guess, asks three easy questions and waits
+for your yes before creating anything. Install `tce` first and the two skills share one loop:
+
+```bash
+npx skills add albertpikkop/tce-skill
+```
+
+The same `npx skills add` commands work for Claude Code, Codex and Cursor.
 
 ## Beginner exercise
 

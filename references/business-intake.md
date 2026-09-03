@@ -36,21 +36,24 @@ Do not turn a business plan into extra features. Inventory, payments, WhatsApp a
 appointments, staff access and customer accounts are separate projects unless the owner explicitly
 makes one essential to the first enquiry loop.
 
-## First response shape
+## First response shape: TCE #0
 
-Use these six labels in plain language:
+This is the gap analysis from the `tce` skill, unchanged, so a student meets one method, not two.
+If `tce` is installed, run it. If not, answer in this exact shape, in plain text:
 
 ```text
-1. What I understood
-2. Facts
-3. Assumptions
-4. Missing or unclear
-5. Three easiest questions
-6. What happens after you confirm
+1. What I understood: [the business and the enquiry loop, in two or three lines]
+2. Facts vs assumptions: [Facts: what they said, nothing more. Assumptions: every guess,
+   one per line, each labelled Assumption]
+3. Missing or unclear: [one per line]
+4. Your biggest unknown: [the one thing that decides the landing page or the enquiry flow]
+5. Three easiest questions to answer next: [three, one ask each, answerable from memory]
+6. One small next move: [one, doable today, no building yet]
 ```
 
-Ask at most three questions. Prefer questions the owner can answer from memory. Ask only about a
-gap that changes visible copy, the form, operator access or whether public launch is safe.
+Do not invent facts. Mark every guess as Assumption. Wait for approval before creating anything.
+Ask only about a gap that changes visible copy, the form, operator access or whether public launch
+is safe. A fourth question that would change the build goes at the top of Missing or unclear.
 
 Good questions:
 
