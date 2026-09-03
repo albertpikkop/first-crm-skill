@@ -38,8 +38,8 @@ makes one essential to the first enquiry loop.
 
 ## First response shape: TCE #0
 
-This is the gap analysis from the `tce` skill, unchanged, so a student meets one method, not two.
-If `tce` is installed, run it. If not, answer in this exact shape, in plain text:
+This is the gap analysis from the `noguess` skill (students say "TCE this"; `/tce` is its alias), unchanged, so a student meets one method, not two.
+If `noguess` is installed, run it. If not, answer in this exact shape, in plain text:
 
 ```text
 1. What I understood: [the business and the enquiry loop, in two or three lines]

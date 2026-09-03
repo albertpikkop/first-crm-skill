@@ -57,8 +57,8 @@ The person never repeats a stage. Read the conversation and any generated `BUSIN
 Read [references/business-intake.md](references/business-intake.md) when the user first supplies a
 business plan, notes, document, or raw description.
 
-This intake is the gap analysis from the TCE + NHA method, the `tce` skill
-(github.com/albertpikkop/tce-skill). If `tce` is installed, run its TCE #0 and use that output;
+This intake is the gap analysis from the TCE + NHA method, the `noguess` skill (students say "TCE this"; `/tce` is its alias)
+(github.com/albertpikkop/noguess). If `noguess` is installed, run its TCE #0 and use that output;
 the intake reference only says which facts a first CRM needs. Either way the six steps and the
 rule are the same: do not invent facts, mark every guess as Assumption, wait for approval before
 creating anything.
@@ -157,7 +157,7 @@ email as the login identifier. Do not invent a separate username system.
 ## Stage 5: prove it
 
 Read [references/verification.md](references/verification.md). Do not declare success from a build
-command or API receipt alone. Then run the check from the `tce` skill on the finished loop against
+command or API receipt alone. Then run the check from the `noguess` skill (students say "TCE this"; `/tce` is its alias) on the finished loop against
 the boundary above: invented, each check met or not met or [PENDING], assumed without being told,
 why, the fix, and the one line to add next time. Use one clearly labelled test enquiry and prove the full external
 loop. Run Supabase security and performance advisors after schema work and resolve material

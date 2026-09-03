@@ -30,12 +30,12 @@ Use $build-first-crm to build my first CRM from this business plan: [paste or at
 ## The method underneath
 
 The skill starts with the gap analysis from the TCE + NHA method
-([albertpikkop/tce-skill](https://github.com/albertpikkop/tce-skill)): it says back what it
+([albertpikkop/noguess](https://github.com/albertpikkop/noguess)): it says back what it
 understood, separates facts from assumptions, marks every guess, asks three easy questions and waits
-for your yes before creating anything. Install `tce` first and the two skills share one loop:
+for your yes before creating anything. Install `noguess` first and the two skills share one loop:
 
 ```bash
-npx skills add albertpikkop/tce-skill
+npx skills add albertpikkop/noguess
 ```
 
 The same `npx skills add` commands work for Claude Code, Codex and Cursor.
