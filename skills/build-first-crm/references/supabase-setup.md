@@ -136,7 +136,9 @@ After the migration:
 
 1. Confirm the intended schema is exposed to the Data API using the current project settings.
 2. Confirm only the grants above are present for `anon` and `authenticated`.
-3. Test an anonymous insert without requesting returned rows.
+3. Test an anonymous insert without requesting returned rows. This is the number one cause of
+   "RLS blocks the form": a `.select()` chained after the insert asks for a row back, and anonymous
+   visitors have no select policy, so the whole request fails. Insert only.
 4. Test that an anonymous select is denied or returns no rows under RLS.
 
 Never fix an access problem by disabling RLS or using a service-role key in the browser.

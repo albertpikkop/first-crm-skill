@@ -120,6 +120,12 @@ Three rules that never bend: no secret or service-role key ever reaches the page
 a log or the chat; RLS is on before any real customer row; nothing on the page that
 `BUSINESS-TRUTH.md` does not support.
 
+If a student pastes a secret key into the chat anyway: do not repeat it, do not use it, and
+say in one line where to roll it (Supabase, Project Settings, API keys, the service role key,
+Regenerate) and why (a pasted key is in a transcript now). Then give the real fix. The
+number one cause of "RLS blocks my form" is a read-back chained onto the insert; the page
+inserts without asking for the row back.
+
 Why Supabase and a login the student owns, when the host may offer its own storage and sign-in:
 the student keeps the data and the account when they change hosts, teachers or agents. That is
 the choice, made on purpose; override a host's default knowingly and say so once.
@@ -166,6 +172,11 @@ redeploy on the same path, rerun the journey the change touches (public journey 
 or form, operator journey for the login or list), and update What exists now. A WhatsApp
 button, a new phone number, a new opening line: all Stage 5. A pipeline, automation or
 billing: not this skill.
+
+When the request is a symptom, not a change ("the form gives an error"), diagnose first:
+name the likely causes in order, most likely first, with the one check that settles each,
+then propose the smallest fix and wait for the yes. For one error, a short check is enough:
+what was invented or assumed, what is met and not met, the fix, and the Next time line.
 
 If the change needs a fact the truth file marks [PENDING] (a phone number for the button),
 ask for that one fact, write it into the file, then make the change. If the request assumes
