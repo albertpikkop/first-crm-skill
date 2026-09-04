@@ -8,7 +8,7 @@ Landing page -> enquiry form -> the student's own Supabase project -> operator l
 ```
 
 It is the second of three skills that share one method and one file. The method is
-[noguess](https://github.com/albertpikkop/noguess) (the TCE + NHA loop: a gap analysis first, a
+[noguess](https://github.com/albertpikkop/noguess-prompt-skill) (the TCE + NHA loop: a gap analysis first, a
 truth file, one task at a time, a check at the end). The third is
 [remotion-ffmpeg-video](https://github.com/albertpikkop/remotion-ffmpeg-video-skill).
 
@@ -21,7 +21,7 @@ never calls the CRM ready without sending one fake enquiry through the real form
 
 Day-one setup for all three skills, per machine (Node, Supabase account, the plugins or the
 MCP connection, Windows paths), is in the shared
-[SETUP.md](https://github.com/albertpikkop/noguess/blob/main/SETUP.md). This repo's own
+[SETUP.md](https://github.com/albertpikkop/noguess-prompt-skill/blob/main/SETUP.md). This repo's own
 [SETUP.md](SETUP.md) lists only what this skill needs.
 
 ## Install
@@ -29,7 +29,7 @@ MCP connection, Windows paths), is in the shared
 **Claude Code** (the three skills share one marketplace):
 
 ```bash
-claude plugin marketplace add albertpikkop/noguess
+claude plugin marketplace add albertpikkop/noguess-prompt-skill
 ```
 
 ```bash
