@@ -68,7 +68,9 @@ yes. If no supported path exists, stop with `[PENDING: connect Supabase]` or
 
 If `BUSINESS-TRUTH.md` already exists (the `noguess` skill writes it), or a gap analysis
 already ran in this conversation, read it and ask only what it does not answer: at most
-three questions, one ask each. Do not run the interview again. A value that is plainly a
+three questions, one ask each. Do not run the interview again. If the file describes a
+different business from the one the person is talking about, say so in one line, use
+nothing from it, and ask which is right. A value that is plainly a
 placeholder (an example.com address, 9999999999, "not decided", "TBD") counts as
 [PENDING], not as an answer; the operator email in particular must be one the student can
 open, because the password reset goes there.
