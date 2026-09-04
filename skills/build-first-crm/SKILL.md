@@ -68,7 +68,10 @@ yes. If no supported path exists, stop with `[PENDING: connect Supabase]` or
 
 If `BUSINESS-TRUTH.md` already exists (the `noguess` skill writes it), or a gap analysis
 already ran in this conversation, read it and ask only what it does not answer: at most
-three questions, one ask each. Do not run the interview again.
+three questions, one ask each. Do not run the interview again. A value that is plainly a
+placeholder (an example.com address, 9999999999, "not decided", "TBD") counts as
+[PENDING], not as an answer; the operator email in particular must be one the student can
+open, because the password reset goes there.
 
 If it does not exist, run the same six steps a student learned in `noguess`, with the same
 labels, in plain text: 1. What I understood. 2. Facts vs assumptions (every guess labelled
@@ -98,9 +101,15 @@ Operator login: [email]; the password is generated and shown once
 Still missing: [PENDING items, or none]
 ```
 
-For a new Supabase project: list the student's organisations, ask which, fetch that
-organisation's current project cost, repeat it in plain words, use the tool's own cost
-confirmation, then ask. If a suitable project exists, offer to reuse it.
+For a new Supabase project this is two exchanges, not one: first list the student's
+organisations and ask which (that is the one question of this stage), then fetch that
+organisation's current project cost and show the preflight above with the real amount in
+the Cost line. The block is never shown with the cost missing. If a suitable project
+exists, offer to reuse it.
+
+"Private first" depends on the host. Sites and Cloudflare Pages can keep a page private or
+unlisted; GitHub Pages is public from the first deploy. Say which case applies in the Will
+publish line, and on a public-only host get the yes for public before deploying at all.
 
 ## Stage 3: build
 
@@ -134,7 +143,9 @@ the choice, made on purpose; override a host's default knowingly and say so once
 
 Read `references/verification.md`. Do not call anything ready from a build command or an API
 receipt. Before opening the page in a browser to test it, ask: "I need to open the page in a
-browser to test the form. Ok?" Any check you could not run is `not met`, never `met`.
+browser to test the form. Ok?" If you have no browser tool, the browser checks become
+[PENDING: you to confirm] with the exact steps for the student to do. Any check you could
+not run is `not met` or [PENDING], never `met`.
 
 Then the check, in this shape, the same one `noguess` uses:
 
