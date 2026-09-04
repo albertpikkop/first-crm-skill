@@ -46,7 +46,7 @@ One file, one business, read by every skill that builds for it. Facts only. Ever
 - [PENDING: one per line]
 
 ## What exists now
-- [PENDING: nothing yet. Every skill that builds adds a line: what, its address, the date. Never a key.]
+- [PENDING: nothing yet. Every skill that builds adds a line: what, its address, the path (Sites or static, which host), where the source lives (folder or repo), the date. Never a key.]
 
 ## Prompting rules learned
 - [PENDING: one per line, dated, from every check's Next time line]

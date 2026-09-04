@@ -151,14 +151,23 @@ checks passed, the one-line SQL that deletes a customer's row on request, and on
 sentence that basic form protection is not enough for a paid campaign.
 
 Then update `BUSINESS-TRUTH.md`: under What exists now write the page address, the project
-name and the routes (never a key or an ID that opens anything); under Prompting rules learned
-write the Next time line, dated; bump the version.
+name, the routes, the path chosen (Sites or static, and which host), and where the source
+lives (the folder or repo), never a key or an ID that opens anything; under Prompting rules
+learned write the Next time line, dated; bump the version. A future session finds the build
+from that section alone.
 
 ## Stage 5: change requests, the day-two skill
 
 When the student asks to change or extend a CRM this skill built: read What exists now in
-`BUSINESS-TRUTH.md`, name the smallest change, say which file and which line will change and
-whether the page will be redeployed, wait for the yes, make only that change, redeploy on the
-same path, rerun the one check the change touches, and update What exists now. A WhatsApp
+`BUSINESS-TRUTH.md` (it says where the source lives; if it does not, ask for the folder or
+repo before anything else), name the smallest change, say which file and which line will
+change and whether the page will be redeployed, wait for the yes, make only that change,
+redeploy on the same path, rerun the journey the change touches (public journey for the page
+or form, operator journey for the login or list), and update What exists now. A WhatsApp
 button, a new phone number, a new opening line: all Stage 5. A pipeline, automation or
 billing: not this skill.
+
+If the change needs a fact the truth file marks [PENDING] (a phone number for the button),
+ask for that one fact, write it into the file, then make the change. If the request assumes
+something the truth file contradicts ("the number on the page" when the file says there is
+none), say so in one line and never invent the missing piece.
