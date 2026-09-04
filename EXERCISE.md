@@ -52,9 +52,26 @@ If you already ran `noguess` on this business, skip the plan: the skill reads yo
 - The form creates exactly one test enquiry.
 - A signed-out visitor cannot read enquiries.
 - The operator can sign in and see the same test enquiry.
-- No password or secret key appears in the chat, the repository or the browser source.
+- Your login block appeared in the chat: page link, login link, email, temporary password.
+- No secret key appears in the chat, the repository or the browser source, and no password
+  appears in any file.
 - `BUSINESS-TRUTH.md` now has a What exists now line and a dated Prompting rules learned line.
 
 Stop the exercise if the agent invents the missing phone number, skips the cost confirmation,
 shares a secret key, calls the CRM ready without sending the test enquiry, or asks you the six
 questions a second time.
+
+## Optional: the two emails
+
+Once the loop above passes, say: `now add the two emails`. You need a free Resend account. The
+agent puts the key in a Supabase Edge Function, never in the page, and a database webhook fires
+it on each enquiry.
+
+Pass check for this part:
+
+- You submit one more test enquiry and the operator email arrives in your inbox. You opened it.
+- The lead email arrives too, or the agent tells you plainly it is `[PENDING: verify a domain
+  in Resend]` because Resend will not email other people from an unverified domain.
+- The agent shows you the Resend log line, not just an API response, before saying delivered.
+- With a deliberately wrong key, the enquiry still saves and the visitor sees no error.
+- The Resend key appears nowhere in the page source or the repository.

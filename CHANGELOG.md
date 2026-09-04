@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.3.0, 4 September 2026
+
+- The operator account comes with a temporary password the skill generates and prints in one
+  login block (page link, login link, email, password), so a student signs in during the class
+  and sees the whole loop. Change it after the first login; it never goes into a file, a repo,
+  an env file or a screenshot.
+- Stage 5, the two emails, through Resend: the lead hears that their enquiry arrived, the
+  operator hears that one came in. Sent by a Supabase Edge Function on a database webhook, so
+  the API key never reaches the page and a failed email never breaks the form. Resend needs a
+  verified domain before it will email a lead, so until then the lead email is marked
+  [PENDING] and only the operator email is live. Accepted by the API is not delivered: read
+  the Resend log and the real inbox.
+- Change requests are now Stage 6.
+
 ## v0.2.0, 4 September 2026
 
 Rewritten after a cold review of the skill and a second cold review of the three-skill journey.

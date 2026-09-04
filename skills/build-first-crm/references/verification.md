@@ -88,9 +88,8 @@ For `ready`, give the non-technical student:
 
 - the landing-page link, with the words "this link is private, only you can open it; say publish
   publicly when customers may";
-- the operator-login link;
-- the operator email;
-- the temporary password once, with "Save this now";
+- one plain login block: the page link, the operator-login link, the operator email and the
+  temporary password, with "save this now and change it after your first login";
 - where new enquiries appear;
 - which checks passed;
 - the one-line SQL that deletes a customer's row on request (from supabase-setup.md); and

@@ -146,12 +146,26 @@ Never fix an access problem by disabling RLS or using a service-role key in the 
 
 ## 5. Operator account
 
-Ask for the operator's real email. The student creates the user and chooses the password; you
-never generate, see, type or record it, so it lives only in their password manager. The
-connected Supabase tools do not create Auth users, and you never click the dashboard yourself.
-Guide the five clicks: Authentication, then Users, then Add user, then Create new user; the
-operator email and a password of their choice; tick Auto Confirm User; save. That avoids
-depending on email delivery for the first login.
+Ask for the operator's real email, the one from `BUSINESS-TRUTH.md`. Then generate a
+**temporary password** and print it in the chat, so the student can sign in straight away and
+see the enquiry reach the dashboard in the same session. That end to end moment is the point of
+the build; do not make them invent a password or hunt through settings to reach it.
+
+The temporary password is easy to type and hard to guess by accident: three ordinary words and
+four digits, joined by hyphens, drawn from a cryptographically secure random source, for example
+`amber-tiger-clock-4821`. No lookalike characters, nothing from the business name, nothing
+reused.
+
+The connected Supabase tools do not create Auth users, and you never click the dashboard
+yourself. Give the five clicks with the exact values to paste: Authentication, then Users, then
+Add user, then Create new user; the operator email; the temporary password you generated; tick
+Auto Confirm User; save. Auto confirm is what stops the first login depending on email delivery.
+
+Where the password may and may not go. In the chat, once, in the login block: yes, that is how
+the student gets it. In a file, a repository, a `.env`, a receipt, a URL, a screenshot or a
+commit message: never. Tell the student in one line to save it in their password manager and
+change it in the dashboard (Authentication, Users, the user, Reset password) after the first
+successful login, because a temporary password shown in a chat is temporary on purpose.
 
 The Supabase Admin create-user API is server-only. Never expose a secret or service-role key to the
 Site to call it.
@@ -165,8 +179,9 @@ insert into public.crm_operators (user_id) values ('<the id>');
 
 Confirm exactly one match before inserting. Never grant access from user-editable metadata.
 
-Never ask the student to paste the password into the chat. If they do, say it is in the transcript
-now and should be changed in the dashboard.
+If the student pastes a password of their own into the chat, use it, and remind them once that
+anything typed in a chat should be changed after the first login, the same rule as the temporary
+one.
 
 ## 6. Browser configuration
 

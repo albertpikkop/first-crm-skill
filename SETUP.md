@@ -11,7 +11,10 @@ needs, from that list:
 4. A place for the page: on Codex, the Sites plugin enabled; anywhere else, a free static host
    you already have (Cloudflare Pages, Netlify, GitHub Pages, Vercel) or the skill asks before
    creating one.
-5. An email you control for the operator login, and a password manager.
+5. An email you control for the operator login, and a password manager. The skill gives you a
+   temporary password in the chat; change it after your first login.
+6. Optional, for the two emails on each enquiry: a free Resend account (resend.com) and, to
+   email your customers rather than only yourself, a domain you own and verify in Resend.
 
 The skill checks all of this before it asks about your business, and stops with one plain next
 step if something is missing.

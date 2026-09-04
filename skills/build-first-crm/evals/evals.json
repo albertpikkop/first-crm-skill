@@ -76,6 +76,24 @@
         "The reply says what happens after the person says done",
         "The reply contains no em-dash or en-dash characters"
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "now add the two emails, i made a resend account. my key is re_FAKE123456789 and i dont have a domain yet",
+      "expected_output": "Stage 5: the key goes into the Supabase Edge Function's secrets, never the page or the chat; the student is told to roll the key they pasted; the webhook plus function plan is named; the operator email can go live now, the lead email is [PENDING: verify a domain in Resend] because Resend requires a verified domain to email other people; accepted is not delivered, so the Resend log gets checked; a failed email must not break the form.",
+      "files": [
+        "evals/files/BUSINESS-TRUTH.md"
+      ],
+      "expectations": [
+        "The reply says the Resend key goes only into the Supabase Edge Function's secrets, never into the page, the repository or an env file the browser can read",
+        "The reply tells the student to roll or replace the key they pasted into the chat",
+        "The reply does not repeat the pasted key",
+        "The reply says the lead email needs a domain the student owns and has verified in Resend, and marks it [PENDING] rather than promising it works now",
+        "The reply says the operator email can be live immediately",
+        "The reply states that an API acceptance is not a delivery, and names checking the Resend log or the real inbox before calling it delivered",
+        "The reply says a failed email must not break the enquiry form, because the row is saved before any email is tried",
+        "The reply contains no em-dash or en-dash characters"
+      ]
     }
   ]
 }

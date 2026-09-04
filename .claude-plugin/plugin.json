@@ -1,6 +1,6 @@
 {
   "name": "build-first-crm",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Build a first CRM from BUSINESS-TRUTH.md: landing page, enquiry form, Supabase storage, operator login. Codex with Sites, or any agent with a static page. Asks before every account, cost or deploy.",
   "author": {
     "name": "Ashish Punj",

@@ -11,8 +11,8 @@ description: >-
   ("add a WhatsApp button to the page you built", "is my CRM right?"). If no truth file
   exists yet, the noguess skill runs its gap analysis first; this skill starts from the
   approved file and never asks the same questions twice. Not for bookings, appointments,
-  messaging automation, billing, analytics, staff roles or an existing complex CRM: say
-  so and stop.
+  marketing campaigns, billing, analytics, staff roles or an existing complex CRM: say so
+  and stop.
 ---
 
 # Build My First CRM
@@ -25,6 +25,7 @@ Turn an approved `BUSINESS-TRUTH.md` into one small working loop, owned by the s
 Visitor opens the landing page
 Visitor sends an enquiry
 The student's Supabase project stores it
+The lead gets an email saying it arrived, the operator gets one saying it came in
 The operator signs in
 The operator sees the same enquiry
 ```
@@ -35,10 +36,12 @@ headings and [PENDING] stay in English. No em-dashes in text you write.
 
 ## Not this skill, and when to stand down
 
-- Bookings, appointments or a calendar, messaging automation, billing, analytics, staff
-  roles, customer accounts, a second business in the same project, or an existing complex
-  CRM: say in one line that this skill builds only the first enquiry loop, and stop. A
-  booking request is not an enquiry form; say so before building anything.
+- Bookings, appointments or a calendar, marketing campaigns or message sequences, WhatsApp
+  automation, billing, analytics, staff roles, customer accounts, a second business in the
+  same project, or an existing complex CRM: say in one line that this skill builds only the
+  first enquiry loop, and stop. A booking request is not an enquiry form; say so before
+  building anything. The two transactional emails on an enquiry (Stage 5) are in scope; a
+  campaign to a list is not.
 - A small change to a CRM this skill built ("add a WhatsApp button", "change the phone
   number"): go straight to Stage 5. No interview.
 - A question ("is my CRM right?", "why can nobody open my page?"): answer it in three lines
@@ -107,7 +110,8 @@ Path: [Sites on Codex / static page on <host>]
 Will create: [Supabase project or reuse <name>, two tables, one operator account, the page]
 Will publish: private first, only you can open it. Say "publish publicly" when customers may.
 Cost: [the amount and recurrence the Supabase tool reports, or "no added cost"]
-Operator login: [email]; you set the password yourself in the Supabase dashboard
+Operator login: [email]; I give you a temporary password here in the chat, and you
+  change it after your first login
 Still missing: [PENDING items, or none]
 ```
 
@@ -128,10 +132,14 @@ before the form or the list. Build order:
 
 1. Create or select the approved Supabase project.
 2. Create the two tables, row level security and the column-level grants from the reference.
-3. The operator account is created by the student, never by you: in the Supabase
-   dashboard, Authentication, Users, Add user, their email, a password they choose and keep
-   in their password manager, auto-confirm ticked. You never see or generate the password.
-   Then read the user's ID back with the SQL in the reference and bind it in `crm_operators`.
+3. The operator account, with a temporary password you generate and print, so the student
+   can sign in during this session and see the whole loop work. Never make them invent a
+   password or hunt through settings. Give the five clicks with the exact values to type
+   (Authentication, Users, Add user, Create new user, the email, the password below, tick
+   Auto Confirm User, save), then read the user's ID back with the SQL in the reference and
+   bind it in `crm_operators`. The password rules are in `references/supabase-setup.md`:
+   simple to type, temporary, changed after the first login, and never written into a file,
+   a repo, an env file or a screenshot.
 4. Take only the project URL and an enabled publishable key into the page.
 5. Build the page, the form, the login and the read-only list on the path chosen in Stage 0.
 6. Validate locally. Deploy privately. Public is a separate yes.
@@ -175,11 +183,20 @@ Next time: [the one line for BUSINESS-TRUTH.md under Prompting rules learned]
 Fix only what it surfaced, rerun the affected check, then hand off with one status: `ready`,
 `not ready` or `blocked`. The handoff gives the student the page link with the words "this
 link is private, only you can open it; say publish publicly when customers may", the operator
-login link and email, where enquiries appear, which checks passed, the two-line SQL that
-finds and then deletes a customer's row on request, one honest sentence that basic form
-protection is not enough for a paid campaign, and one sentence that the student now holds
-other people's names and numbers: keep the login private, delete on request, never share
-the list.
+login block below, where enquiries appear, which checks passed, the two-line SQL that finds
+and then deletes a customer's row on request, one honest sentence that basic form protection
+is not enough for a paid campaign, and one sentence that the student now holds other people's
+names and numbers: keep the login private, delete on request, never share the list.
+
+The login block is printed on its own, in plain text, so the student can copy it in one go:
+
+```text
+YOUR LOGIN
+Page:     https://<the page>
+Login:    https://<the page>/operator
+Email:    <the operator email>
+Password: <the temporary password>   (change it after your first login)
+```
 
 Then update `BUSINESS-TRUTH.md`: under What exists now write the page address, the project
 name, the routes, the path chosen (Sites or static, and which host), and where the source
@@ -187,7 +204,20 @@ lives (the folder or repo), never a key or an ID that opens anything; under Prom
 learned write the Next time line, dated; bump the version. A future session finds the build
 from that section alone.
 
-## Stage 5: change requests, the day-two skill
+## Stage 5: the two emails
+
+Only after Stage 4 passed. Read `references/emails-resend.md`. The lead gets an email saying
+their enquiry arrived; the operator gets one saying a new enquiry came in. Both are sent server
+side by a Supabase Edge Function that a database webhook triggers on insert, so the Resend API
+key never reaches the page, and a failed email never breaks the form.
+
+Two things to say out loud before starting, and never to fudge: Resend needs a domain the
+student owns and has verified before it will email a lead, so until then only the operator
+email is live and the lead email is `[PENDING: verify a domain in Resend]`; and a 200 from the
+email API means accepted, not delivered, so read the Resend log and the real inbox before
+calling it done.
+
+## Stage 6: change requests, the day-two skill
 
 When the student asks to change or extend a CRM this skill built: read What exists now in
 `BUSINESS-TRUTH.md` (it says where the source lives; if it does not, ask for the folder or
