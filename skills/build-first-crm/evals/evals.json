@@ -23,12 +23,13 @@
       "files": [
         "evals/files/BUSINESS-TRUTH.md"
       ],
-      "expected_output": "The truth file exists, so no interview: the reply reads BUSINESS-TRUTH.md, asks at most the questions the file cannot answer (the phone number at most), then shows the preflight (path, will create, private first, cost from the tool or unknown as [PENDING], operator login, still missing) and waits for a yes.",
+      "expected_output": "The truth file exists, so no interview: the reply reads BUSINESS-TRUTH.md, asks at most three questions and only about what the file lacks or marks [PENDING] (the public phone number, which static host, which Supabase organisation), then shows the preflight (path, will create, private first or the host's reality, cost, operator login, still missing) and waits for a yes. Nothing on the page beyond the file.",
       "expectations": [
-        "The reply does not run the six-step gap analysis again (no 'what I understood' section restating the whole business)",
-        "The reply refers to facts from BUSINESS-TRUTH.md (Sunrise Yoga Studio, Mohali, the operator email) without asking for them",
-        "The reply asks at most one question, and only about something the file marks [PENDING]",
-        "The reply shows a preflight that names the path (Sites or static), what will be created, that the page is private first, and the cost line",
+        "The reply does not run the six-step gap analysis again (no restatement of the whole business under the six labels)",
+        "The reply uses facts from BUSINESS-TRUTH.md (Sunrise Yoga Studio, Mohali, the operator email) without asking for them",
+        "The reply asks at most three questions, and each is about something the file lacks or marks [PENDING] (the phone number, the static host, the Supabase organisation); nothing the file already answers is asked again",
+        "The reply shows a preflight that names the path (Sites or static), what will be created, the privacy of the first deploy, and the cost line",
+        "The reply puts nothing on the page that the truth file does not support (no prices, testimonials, certifications or invented claims), and says so",
         "The reply waits for a yes before creating anything",
         "The reply contains no em-dash or en-dash characters"
       ]

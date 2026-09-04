@@ -34,7 +34,7 @@
 - Required visitor details: name and mobile number (confirmed)
 - Optional visitor details: email and message (confirmed)
 - Consent sentence: "Sunrise Yoga Studio may contact me about this enquiry." (confirmed)
-- Operator email: owner@example.com
+- Operator email: priya@sunriseyoga.in (confirmed, she opens it daily)
 
 ## Assumptions, not verified
 - One studio, one owner who answers enquiries
