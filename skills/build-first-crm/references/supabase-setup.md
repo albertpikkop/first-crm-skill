@@ -64,7 +64,8 @@ revoke all on table public.crm_operators from anon, authenticated;
 revoke all on table public.enquiries from anon, authenticated;
 
 grant select on table public.crm_operators to authenticated;
-grant insert on table public.enquiries to anon, authenticated;
+grant insert (name, mobile, email, message, consent_to_contact) on table public.enquiries to anon, authenticated;
+grant delete on table public.enquiries to authenticated;
 grant select on table public.enquiries to authenticated;
 
 create policy "operator can read own membership"
@@ -86,6 +87,18 @@ with check (
   and source = 'landing_page'
 );
 
+create policy "approved operator can delete an enquiry"
+on public.enquiries
+for delete
+to authenticated
+using (
+  exists (
+    select 1
+    from public.crm_operators
+    where crm_operators.user_id = (select auth.uid())
+  )
+);
+
 create policy "approved operator can read enquiries"
 on public.enquiries
 for select
@@ -102,8 +115,17 @@ using (
 Before applying, inspect existing tables and policies. If these names already exist with different
 meaning, stop and mark the collision `[PENDING]`. Do not drop or replace an existing table.
 
-The schema deliberately creates no update or delete policy. The first dashboard is read-only.
-There is deliberately no anonymous select policy.
+The schema creates no update policy. The list is read-only, but an approved operator may delete a
+row, because a customer may ask to be removed and the student must be able to do it. The grant is
+column-level on purpose: a visitor cannot set `id`, `source` or `created_at`, so a spammer cannot pin
+a row to the top of the list. There is deliberately no anonymous select policy.
+
+To remove one customer on request, the handoff gives the student this line to run in the SQL
+editor, with the mobile number filled in:
+
+```sql
+delete from public.enquiries where mobile = '<the number>';
+```
 
 ## 4. Data API exposure
 
@@ -125,18 +147,22 @@ Ask for the operator's real email. Generate a strong temporary password of at le
 using a cryptographically secure random source. Never put it in a file, terminal command, receipt,
 URL, screenshot or repository.
 
-Prefer a currently available Supabase admin API or connector that creates the user server-side. If
-none exists, the Supabase dashboard is the last-resort setup path and requires the user's approval
-before browser control. Create one email-and-password user and confirm the email through the
-supported admin flow so the first login does not depend on SMTP.
+The connected Supabase tools do not create Auth users. The primary path is the dashboard, five
+clicks, done by the student with you guiding, or by you with their yes: Authentication, then
+Users, then Add user, then Create new user; enter the operator email and the generated password;
+tick Auto Confirm User; save. That avoids depending on email delivery for the first login.
 
 The Supabase Admin create-user API is server-only. Never expose a secret or service-role key to the
 Site to call it.
 
-After Auth user creation, bind the returned user UUID to `public.crm_operators`. If the creation
-path does not return the UUID, query `auth.users` by the exact normalized email using a safe SQL
-literal, confirm exactly one match, then insert that UUID. Never grant access from user-editable
-metadata.
+Then read the user's ID back and bind it, with the email as a safe SQL literal:
+
+```sql
+select id from auth.users where email = lower('<operator email>');
+insert into public.crm_operators (user_id) values ('<the id>');
+```
+
+Confirm exactly one match before inserting. Never grant access from user-editable metadata.
 
 Show the temporary password once only after the account and login are verified. Tell the student
 to save it immediately in a password manager.

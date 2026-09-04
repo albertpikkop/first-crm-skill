@@ -2,6 +2,14 @@
 
 Read this after Supabase is ready and before initializing or editing the Site.
 
+## Why this build overrides two Sites defaults
+
+Sites may offer its own storage and its own sign-in. This CRM uses the student's own Supabase
+project and an email-and-password login the student owns, on purpose: the data and the account
+stay with the student when they change hosts, teachers or agents. Follow the Sites skill for
+building, packaging and hosting, and override its storage and auth defaults knowingly. Say so
+once in the preflight.
+
 ## Use the live Sites workflow
 
 Load the installed `sites-building` skill completely, including the environment reference it

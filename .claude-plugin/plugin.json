@@ -1,0 +1,9 @@
+{
+  "name": "build-first-crm",
+  "version": "0.2.0",
+  "description": "Build a first CRM from BUSINESS-TRUTH.md: landing page, enquiry form, Supabase storage, operator login. Codex with Sites, or any agent with a static page. Asks before every account, cost or deploy.",
+  "author": { "name": "Ashish Punj", "url": "https://ashishpunj.com" },
+  "homepage": "https://github.com/albertpikkop/first-crm-skill",
+  "license": "MIT",
+  "keywords": ["crm", "supabase", "landing-page", "noguess", "tce", "agent-skills", "codex", "claude-code"]
+}

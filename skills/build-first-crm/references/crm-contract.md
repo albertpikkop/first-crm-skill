@@ -43,13 +43,15 @@ usable on a narrow phone.
 
 ## Enquiry form
 
-Default fields:
+Fields, each confirmed in BUSINESS-TRUTH.md before the build (the defaults below are only
+defaults; a tuition centre needs the child's class, a consultant wants email):
 
 - Name, required, 2 to 80 characters.
 - Mobile number, required, normalized and 7 to 20 characters after allowed punctuation.
 - Email, optional, maximum 254 characters and validated when supplied.
 - Enquiry message, optional, maximum 1,000 characters.
 - Contact consent, required: "[Business] may contact me about this enquiry."
+- One line under the form saying who holds the data: "Your details go only to [Business]."
 - Company website, hidden honeypot, must remain empty.
 
 Do not describe enquiry consent as marketing consent. Do not add a newsletter checkbox. Do not ask
@@ -79,7 +81,8 @@ The protected screen starts with the work, not a marketing hero. Show:
 - clear loading, empty, error and signed-out states.
 
 Escape all enquiry text. Phone and email actions may use `tel:` and `mailto:` after validation.
-Do not add status editing, assignment, exporting, deletion or messaging in version one.
+Do not add status editing, assignment, exporting or messaging in version one. A delete control
+for an approved operator is allowed, because a customer may ask to be removed.
 
 ## Data contract
 

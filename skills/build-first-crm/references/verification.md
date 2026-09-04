@@ -18,6 +18,12 @@ Consent: checked
 Do not use a real customer's contact information for testing. If the business may already contain
 a row with that label, add a visible date and time to make the test unique.
 
+## Ask before the browser
+
+These checks open the page in a browser. Before the first one, ask the student: "I need to open
+the page in a browser to test the form. Ok?" Any check you could not run is `not met`, never
+`met`. Name the access level you tested: private (owner) or public.
+
 ## Public journey
 
 - Open the deployed landing page at a phone-sized viewport.
@@ -62,13 +68,17 @@ Before fixes, report:
 
 ```text
 Invented: [anything not supported by BUSINESS-TRUTH.md]
-Checks: [each check above marked met, not met or PENDING]
-Assumed: [anything decided without approval]
+Checks: [each check above marked met, not met or [PENDING]]
+Assumed without being told: [anything decided without approval]
 Security: [advisor and manual access results]
 Remaining risk: [especially public-form spam limits]
+Why: [one line]
+The fix: [only what the check surfaced]
+Next time: [the one line for BUSINESS-TRUTH.md under Prompting rules learned]
 ```
 
-Fix only what the check surfaces, then rerun the affected journey.
+Fix only what the check surfaces, then rerun the affected journey. Write the Next time line into
+`BUSINESS-TRUTH.md` and bump its version.
 
 ## Handoff
 
@@ -76,12 +86,14 @@ Use one status: `ready`, `not ready`, or `blocked`.
 
 For `ready`, give the non-technical student:
 
-- the landing-page link;
+- the landing-page link, with the words "this link is private, only you can open it; say publish
+  publicly when customers may";
 - the operator-login link;
 - the operator email;
 - the temporary password once, with "Save this now";
 - where new enquiries appear;
-- which checks passed; and
+- which checks passed;
+- the one-line SQL that deletes a customer's row on request (from supabase-setup.md); and
 - one honest sentence that basic form protection is not enough for high-volume public traffic.
 
 Never include database IDs, keys, tokens, source credentials or raw tool output in the handoff.

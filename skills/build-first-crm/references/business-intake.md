@@ -1,6 +1,8 @@
 # Business intake
 
-Read this when the person first shares a business plan, uploaded file, note, URL, or raw idea.
+Read this when the person first shares a business plan, uploaded file, note, URL, or raw idea and
+no `BUSINESS-TRUTH.md` exists yet. If one exists, do not interview: read it and ask only what it
+does not answer.
 
 ## The goal
 
@@ -42,12 +44,16 @@ Use these six labels in plain language:
 
 ```text
 1. What I understood
-2. Facts
-3. Assumptions
-4. Missing or unclear
-5. Three easiest questions
-6. What happens after you confirm
+2. Facts vs assumptions (every guess labelled Assumption)
+3. Missing or unclear
+4. Your biggest unknown
+5. Three easiest questions to answer next (one ask each)
+6. One small next move
 ```
+
+These are the six labels of the `noguess` gap analysis, unchanged, so the student meets one
+shape everywhere. End with: "Reply yes when this is right. Then I write BUSINESS-TRUTH.md and
+build from it."
 
 Ask at most three questions. Prefer questions the owner can answer from memory. Ask only about a
 gap that changes visible copy, the form, operator access or whether public launch is safe.
@@ -69,8 +75,8 @@ the user's account.
 
 ## Write the truth file
 
-After the person answers, fill `assets/BUSINESS-TRUTH-TEMPLATE.md` and place the copy in the new CRM
-project as `BUSINESS-TRUTH.md`. Keep `[PENDING: ...]` for any unresolved fact. Show the file in the
+After the person answers, fill `assets/BUSINESS-TRUTH-TEMPLATE.md`. Show it first; write it into
+the project as `BUSINESS-TRUTH.md` only after the yes. Keep `[PENDING: ...]` for any unresolved fact. Show the file in the
 conversation and ask exactly one question: "Is this correct?"
 
 Do not create or connect external resources until the person says yes. When they correct one fact,
