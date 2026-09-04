@@ -39,8 +39,8 @@ If you already ran `noguess` on this business, skip the plan: the skill reads yo
    instead of inventing it. You reply `yes`.
 3. It shows the preflight: what it will create, the cost the Supabase tool reports, and that
    the page will be private first. You reply `yes`.
-4. It creates the operator account through the Supabase dashboard (five clicks) and shows the
-   password once.
+4. It guides you to create the operator account in the Supabase dashboard (five clicks), with
+   a password you choose and keep in your password manager. It never sees the password.
 5. It asks before opening the page in a browser to test it, sends one clearly fake enquiry, and
    runs the check: invented, checks, assumed, security, remaining risk, why, the fix, next time.
 6. It hands off with the private link and the words that make it public, and writes What
@@ -52,7 +52,7 @@ If you already ran `noguess` on this business, skip the plan: the skill reads yo
 - The form creates exactly one test enquiry.
 - A signed-out visitor cannot read enquiries.
 - The operator can sign in and see the same test enquiry.
-- No password or secret key appears in the repository or the browser source.
+- No password or secret key appears in the chat, the repository or the browser source.
 - `BUSINESS-TRUTH.md` now has a What exists now line and a dated Prompting rules learned line.
 
 Stop the exercise if the agent invents the missing phone number, skips the cost confirmation,

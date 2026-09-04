@@ -15,9 +15,12 @@ Read this when Stage 0 found no Sites plugin. The loop is the same; the page is 
 ## Where it lives
 
 Ask which host the student already has, in this order: Cloudflare Pages, Netlify, GitHub
-Pages, Vercel. All have a free tier for a static site. If none, recommend one and ask before
-creating anything there. The first deploy is private or unlisted where the host allows it;
-public is a separate yes.
+Pages, Vercel. All have a free tier for a static site. If none, do not stop: serve the page
+locally (`python3 -m http.server 8080` in the page's folder, or `py -3 -m http.server 8080`
+on Windows), complete the whole loop against the real Supabase project, and hand off with
+the page marked `not ready: no host yet`. Publishing is a separate later step with its own
+yes. Where a host allows it, the first deploy is private or unlisted; public is a separate
+yes.
 
 ## What stays the same
 

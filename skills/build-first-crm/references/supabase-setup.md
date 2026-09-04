@@ -120,10 +120,11 @@ row, because a customer may ask to be removed and the student must be able to do
 column-level on purpose: a visitor cannot set `id`, `source` or `created_at`, so a spammer cannot pin
 a row to the top of the list. There is deliberately no anonymous select policy.
 
-To remove one customer on request, the handoff gives the student this line to run in the SQL
-editor, with the mobile number filled in:
+To remove one customer on request, the handoff gives the student these two lines to run in the
+SQL editor, with the mobile number filled in, the first to see exactly one row before the second:
 
 ```sql
+select name, mobile, created_at from public.enquiries where mobile = '<the number>';
 delete from public.enquiries where mobile = '<the number>';
 ```
 
@@ -145,14 +146,12 @@ Never fix an access problem by disabling RLS or using a service-role key in the 
 
 ## 5. Operator account
 
-Ask for the operator's real email. Generate a strong temporary password of at least 20 characters
-using a cryptographically secure random source. Never put it in a file, terminal command, receipt,
-URL, screenshot or repository.
-
-The connected Supabase tools do not create Auth users. The primary path is the dashboard, five
-clicks, done by the student with you guiding, or by you with their yes: Authentication, then
-Users, then Add user, then Create new user; enter the operator email and the generated password;
-tick Auto Confirm User; save. That avoids depending on email delivery for the first login.
+Ask for the operator's real email. The student creates the user and chooses the password; you
+never generate, see, type or record it, so it lives only in their password manager. The
+connected Supabase tools do not create Auth users, and you never click the dashboard yourself.
+Guide the five clicks: Authentication, then Users, then Add user, then Create new user; the
+operator email and a password of their choice; tick Auto Confirm User; save. That avoids
+depending on email delivery for the first login.
 
 The Supabase Admin create-user API is server-only. Never expose a secret or service-role key to the
 Site to call it.
@@ -166,8 +165,8 @@ insert into public.crm_operators (user_id) values ('<the id>');
 
 Confirm exactly one match before inserting. Never grant access from user-editable metadata.
 
-Show the temporary password once only after the account and login are verified. Tell the student
-to save it immediately in a password manager.
+Never ask the student to paste the password into the chat. If they do, say it is in the transcript
+now and should be changed in the dashboard.
 
 ## 6. Browser configuration
 

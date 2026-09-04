@@ -10,8 +10,9 @@ description: >-
   page chahiye", or wants to review, verify, change or redeploy a CRM this skill built
   ("add a WhatsApp button to the page you built", "is my CRM right?"). If no truth file
   exists yet, the noguess skill runs its gap analysis first; this skill starts from the
-  approved file and never asks the same questions twice. Not for messaging automation,
-  billing, analytics, staff roles or an existing complex CRM: say so and stop.
+  approved file and never asks the same questions twice. Not for bookings, appointments,
+  messaging automation, billing, analytics, staff roles or an existing complex CRM: say
+  so and stop.
 ---
 
 # Build My First CRM
@@ -34,9 +35,10 @@ headings and [PENDING] stay in English. No em-dashes in text you write.
 
 ## Not this skill, and when to stand down
 
-- Messaging automation, billing, analytics, staff roles, customer accounts, a second business
-  in the same project, or an existing complex CRM: say in one line that this skill builds
-  only the first loop, and stop.
+- Bookings, appointments or a calendar, messaging automation, billing, analytics, staff
+  roles, customer accounts, a second business in the same project, or an existing complex
+  CRM: say in one line that this skill builds only the first enquiry loop, and stop. A
+  booking request is not an enquiry form; say so before building anything.
 - A small change to a CRM this skill built ("add a WhatsApp button", "change the phone
   number"): go straight to Stage 5. No interview.
 - A question ("is my CRM right?", "why can nobody open my page?"): answer it in three lines
@@ -75,11 +77,17 @@ placeholder (an example.com address, 9999999999, "not decided", "TBD") counts as
 [PENDING], not as an answer; the operator email in particular must be one the student can
 open, because the password reset goes there.
 
-If it does not exist, run the same six steps a student learned in `noguess`, with the same
-labels, in plain text: 1. What I understood. 2. Facts vs assumptions (every guess labelled
-Assumption). 3. Missing or unclear. 4. Your biggest unknown. 5. Three easiest questions to
-answer next. 6. One small next move. Read `references/business-intake.md` for what to look
-for in a business plan. Ask nothing the owner cannot answer from memory.
+`BUSINESS-TRUTH.md` lives in the folder the agent is running in, the person's project
+folder, and every skill in the kit reads and writes that one file. If it is not there, ask
+for the folder before anything else; never write a second copy somewhere else.
+
+If it does not exist and `noguess` is installed, hand back: say "noguess first" and let it
+run TCE #0 and write the file. Only when `noguess` is not installed, run the same six
+steps yourself, with the same labels, in plain text: 1. What I understood. 2. Facts vs
+assumptions (every guess labelled Assumption). 3. Missing or unclear. 4. Your biggest
+unknown. 5. Three easiest questions to answer next (three, one ask each). 6. One small next
+move. Read `references/business-intake.md` for what to look for in a business plan. Ask
+nothing the owner cannot answer from memory.
 
 Then fill `assets/BUSINESS-TRUTH-TEMPLATE.md`, keep every unknown as [PENDING], show it, and
 ask exactly one thing: "Is this right? Reply yes and I build from it." The required visitor
@@ -99,7 +107,7 @@ Path: [Sites on Codex / static page on <host>]
 Will create: [Supabase project or reuse <name>, two tables, one operator account, the page]
 Will publish: private first, only you can open it. Say "publish publicly" when customers may.
 Cost: [the amount and recurrence the Supabase tool reports, or "no added cost"]
-Operator login: [email]; the password is generated and shown once
+Operator login: [email]; you set the password yourself in the Supabase dashboard
 Still missing: [PENDING items, or none]
 ```
 
@@ -120,9 +128,10 @@ before the form or the list. Build order:
 
 1. Create or select the approved Supabase project.
 2. Create the two tables, row level security and the column-level grants from the reference.
-3. Create the operator account. The primary path is the Supabase dashboard: Authentication,
-   Users, Add user, email and the generated password, auto-confirm ticked. Then read the
-   user's ID back with the SQL in the reference and bind it in `crm_operators`.
+3. The operator account is created by the student, never by you: in the Supabase
+   dashboard, Authentication, Users, Add user, their email, a password they choose and keep
+   in their password manager, auto-confirm ticked. You never see or generate the password.
+   Then read the user's ID back with the SQL in the reference and bind it in `crm_operators`.
 4. Take only the project URL and an enabled publishable key into the page.
 5. Build the page, the form, the login and the read-only list on the path chosen in Stage 0.
 6. Validate locally. Deploy privately. Public is a separate yes.
@@ -149,7 +158,8 @@ browser to test the form. Ok?" If you have no browser tool, the browser checks b
 [PENDING: you to confirm] with the exact steps for the student to do. Any check you could
 not run is `not met` or [PENDING], never `met`.
 
-Then the check, in this shape, the same one `noguess` uses:
+Then the check, in this shape: the six lines `noguess` uses, plus Security and Remaining
+risk:
 
 ```text
 Invented: [anything on the page or in the data that BUSINESS-TRUTH.md does not support]
@@ -165,9 +175,11 @@ Next time: [the one line for BUSINESS-TRUTH.md under Prompting rules learned]
 Fix only what it surfaced, rerun the affected check, then hand off with one status: `ready`,
 `not ready` or `blocked`. The handoff gives the student the page link with the words "this
 link is private, only you can open it; say publish publicly when customers may", the operator
-login link and email, the password once with "save this now", where enquiries appear, which
-checks passed, the one-line SQL that deletes a customer's row on request, and one honest
-sentence that basic form protection is not enough for a paid campaign.
+login link and email, where enquiries appear, which checks passed, the two-line SQL that
+finds and then deletes a customer's row on request, one honest sentence that basic form
+protection is not enough for a paid campaign, and one sentence that the student now holds
+other people's names and numbers: keep the login private, delete on request, never share
+the list.
 
 Then update `BUSINESS-TRUTH.md`: under What exists now write the page address, the project
 name, the routes, the path chosen (Sites or static, and which host), and where the source
