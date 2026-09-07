@@ -10,9 +10,9 @@ description: >-
   page chahiye", or wants to review, verify, change or redeploy a CRM this skill built
   ("add a WhatsApp button to the page you built", "is my CRM right?"). If no truth file
   exists yet, the noguess skill runs its gap analysis first; this skill starts from the
-  approved file and never asks the same questions twice. Not for bookings, appointments,
-  marketing campaigns, billing, analytics, staff roles or an existing complex CRM: say so
-  and stop.
+  approved file and never asks the same questions twice. Route WhatsApp sales automation
+  and booking extensions to Meta Growth using the existing CRM handoff. Billing, analytics,
+  staff roles and complex CRM replacement remain outside this beginner skill.
 ---
 
 # Build My First CRM
@@ -36,14 +36,15 @@ headings and [PENDING] stay in English. No em-dashes in text you write.
 
 ## Not this skill, and when to stand down
 
-- Bookings, appointments or a calendar, marketing campaigns or message sequences, WhatsApp
-  automation, billing, analytics, staff roles, customer accounts, a second business in the
-  same project, or an existing complex CRM: say in one line that this skill builds only the
-  first enquiry loop, and stop. A booking request is not an enquiry form; say so before
-  building anything. The two transactional emails on an enquiry (Stage 5) are in scope; a
-  campaign to a list is not.
+- WhatsApp confirmations, qualification, nurture or booking extensions: read
+  [references/automation-handoff.md](references/automation-handoff.md) and route to the
+  available Meta Growth skills with the existing CRM facts. Keep this skill responsible for
+  the first enquiry/login/email loop. Do not silently install a dependency or call an
+  enquiry form a booking system.
+- Billing, analytics, staff roles, customer accounts, a second business in the same project
+  or complex CRM replacement: state this skill's boundary and identify the needed capability.
 - A small change to a CRM this skill built ("add a WhatsApp button", "change the phone
-  number"): go straight to Stage 5. No interview.
+  number"): go straight to Stage 6. No interview.
 - A question ("is my CRM right?", "why can nobody open my page?"): answer it in three lines
   first, using the check in Stage 4, then offer the fix.
 
@@ -225,8 +226,8 @@ repo before anything else), name the smallest change, say which file and which l
 change and whether the page will be redeployed, wait for the yes, make only that change,
 redeploy on the same path, rerun the journey the change touches (public journey for the page
 or form, operator journey for the login or list), and update What exists now. A WhatsApp
-button, a new phone number, a new opening line: all Stage 5. A pipeline, automation or
-billing: not this skill.
+button, a new phone number, a new opening line: all Stage 6. For WhatsApp sales automation
+or booking, use references/automation-handoff.md. Billing remains outside this skill.
 
 When the request is a symptom, not a change ("the form gives an error"), diagnose first:
 name the likely causes in order, most likely first, with the one check that settles each,

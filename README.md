@@ -74,3 +74,11 @@ Edit under `skills/build-first-crm/`, add a section to `CHANGELOG.md`, bump the 
 ## Licence
 
 MIT. See [LICENSE](LICENSE). Method by Ashish Punj; please keep the credit line.
+
+## Continue from enquiries to sales automation
+
+For WhatsApp confirmations, human call tasks, qualification, nurture and booking, keep this
+CRM and continue with [Meta Growth System](https://github.com/albertpikkop/meta-growth-system-skill).
+The skill's [handoff guide](skills/build-first-crm/references/automation-handoff.md) preserves
+one BUSINESS-TRUTH.md, the student's Supabase project and the existing Resend sender. This
+package still builds the first enquiry loop; installing it does not enable customer sends.

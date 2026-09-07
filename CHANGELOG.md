@@ -37,3 +37,10 @@ Rewritten after a cold review of the skill and a second cold review of the three
 ## v0.1.0, 3 September 2026
 
 First public version.
+
+## Unreleased: Meta Growth continuation
+
+- Route WhatsApp sales and booking extensions through a reusable CRM handoff.
+- Preserve Supabase, operator access, one truth file and one Resend confirmation owner.
+- Keep the beginner enquiry scope; correct small-change references to Stage 6.
+- No runtime helper changes or release of the separate Supabase-first rewrite.
