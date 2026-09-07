@@ -75,3 +75,12 @@ Pass check for this part:
 - The agent shows you the Resend log line, not just an API response, before saying delivered.
 - With a deliberately wrong key, the enquiry still saves and the visitor sees no error.
 - The Resend key appears nowhere in the page source or the repository.
+
+## Optional next lesson: automate the saved enquiry
+
+After proving the first CRM loop, use the continuation prompt in
+[automation-handoff.md](skills/build-first-crm/references/automation-handoff.md). Keep the
+working CRM and its email sender. Pass this extension only when a ready lead bypasses nurture,
+a not-ready opted-in lead gets an eligible scheduled follow-up, opt-out stops it, and a real
+booking/human handover is recorded. This is the Meta Growth lesson, not part of the first-loop
+completion gate.

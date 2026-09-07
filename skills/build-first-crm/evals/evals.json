@@ -55,7 +55,7 @@
       "files": [
         "evals/files/BUSINESS-TRUTH.md"
       ],
-      "expected_output": "Stage 5: reads What exists now, names the smallest change, says which file and line will change and that the page will be redeployed, waits for a yes; no interview; if the number is [PENDING] in the truth file it says so instead of inventing one.",
+      "expected_output": "Stage 6: reads What exists now, names the smallest change, says which file and line will change and that the page will be redeployed, waits for a yes; no interview; if the number is [PENDING] in the truth file it says so instead of inventing one.",
       "expectations": [
         "The reply does not run the gap analysis or ask about the business",
         "The reply names the exact change, the file or place it will change, and that the page will be redeployed",
@@ -93,6 +93,18 @@
         "The reply states that an API acceptance is not a delivery, and names checking the Resend log or the real inbox before calling it delivered",
         "The reply says a failed email must not break the enquiry form, because the row is saved before any email is tried",
         "The reply contains no em-dash or en-dash characters"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "My CRM already saves enquiries and sends Resend confirmations. Add WhatsApp, a human call, qualify, nurture if not ready and book if ready. Meta Growth is installed.",
+      "files": [],
+      "expected_output": "Reads existing source and BUSINESS-TRUTH.md without repeating the interview; Routes the extension through automation-handoff.md to Meta Growth instead of stopping out of scope; Preserves the student project, operator login and existing Resend sender; Does not claim installed CRM scripts already provide bookings or automation",
+      "expectations": [
+        "Reads existing source and BUSINESS-TRUTH.md without repeating the interview",
+        "Routes the extension through automation-handoff.md to Meta Growth instead of stopping out of scope",
+        "Preserves the student project, operator login and existing Resend sender",
+        "Does not claim installed CRM scripts already provide bookings or automation"
       ]
     }
   ]
